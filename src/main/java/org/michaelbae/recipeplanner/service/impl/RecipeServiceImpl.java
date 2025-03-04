@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -74,11 +75,23 @@ public class RecipeServiceImpl implements RecipeService
     @Override
     public void updateRecipe(Long id, Recipe recipe)
     {
+        // Recipe cannot be null
+        Objects.requireNonNull(recipe, "Recipe cannot be null");
         // check whether the user is in the database or not
         recipeRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid recipe id " + id));
         recipe.setId(id);
         recipeRepository.save(recipe);
+    }
+
+    @Override
+    public void deleteRecipe(Long id)
+    {
+        if (recipeRepository.existsById(id))
+        {
+            recipeRepository.deleteById(id);
+        } else
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not find recipe id: " + id);
     }
 }
