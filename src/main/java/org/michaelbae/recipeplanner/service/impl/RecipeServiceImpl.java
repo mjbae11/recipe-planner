@@ -46,6 +46,8 @@ public class RecipeServiceImpl implements RecipeService
         return recipeRepository.findAll()
                 .stream()
                 .map(recipe -> new RecipeDTO(
+                        // id added for now, maybe take out later for
+                        recipe.getId(),
                         recipe.getName(),
                         recipe.getDescription(),
                         recipe.getInstructions()))
@@ -55,6 +57,10 @@ public class RecipeServiceImpl implements RecipeService
     @Override
     public Recipe addRecipe(Recipe recipe)
     {
+        Objects.requireNonNull(recipe, "Recipe cannot be null");
+        Objects.requireNonNull(recipe.getName(), "Recipe name cannot be null");
+        Objects.requireNonNull(recipe.getDescription(), "Recipe description cannot be null");
+        Objects.requireNonNull(recipe.getInstructions(), "Recipe instructions cannot be null");
         return recipeRepository.save(recipe);
     }
 
@@ -66,6 +72,8 @@ public class RecipeServiceImpl implements RecipeService
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid recipe id " + id));
 
         return new RecipeDTO(
+                // temp id for now, may take out later
+                recipe.getId(),
                 recipe.getName(),
                 recipe.getDescription(),
                 recipe.getInstructions()
