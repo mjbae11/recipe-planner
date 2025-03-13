@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Form</title>
+    <link rel="stylesheet" th:href="@{/css/recipes/recipe-form.css}">
+</head>
+<body>
+<div class="form-container">
+    <h1 th:if="${recipe.id != null}">Edit Recipe</h1>
+    <h1 th:if="${recipe.id == null}">Add Recipe</h1>
+    <!-- mapping -->
+    <form id="recipe-form" th:action="@{/recipes/save}" th:object="${recipe}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}" />
+        <div class="recipe-name-box">
+            <label for="recipe-name">Name of Food:</label>
+            <input type="text" th:field="*{name}" id="recipe-name" name="recipe-name" placeholder="e.g. Napolean Pizza" required maxlength="255">
+        </div>
+        <div class="recipe-description-box">
+            <label for="recipe-description">Description:</label>
+            <textarea id="recipe-description" th:field="*{description}" name="recipe-description" placeholder="Describe your recipe..." rows="5" cols="33" required maxlength="1000"></textarea>
+        </div>
+        <div class="recipe-instructions-box">
+            <label for="recipe-instructions">Recipe Instructions:</label>
+            <textarea id="recipe-instructions" th:field="*{instructions}" name="recipe-instructions" placeholder="Instructions for your recipe..." rows="7" cols="33" required maxlength="5000"></textarea>
+        </div>
+        <div>
+<!--            pre load theimage when editing?-->
+            <label for="imageFile">Recipe Image:</label>
+            <input type="file" id="imageFile" name="imageFile" accept="image/*" />
+        </div>
+        <button type="submit">Submit</button>
+        <a th:href="@{/recipes}" class="btn" id="backButton">Back</a>
+    </form>
+</div>
+<script th:src="@{/js/recipes/recipe-form.js}"></script>
+</body>
+</html>

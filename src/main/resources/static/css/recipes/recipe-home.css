@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20Adlam%20Unjoined:700|Noto%20Sans%20Adlam%20Unjoined:400');
+
+:root{
+    /* CSS HEX */
+    --text: #0c121d;
+    --background: #f1f4f9;
+    --primary: #5678b8;
+    --secondary: #a49ad5;
+    --accent: #9476c6;
+    --lowkey-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow: 2px 4px 10px 0px rgba(68,68,68,0.4);
+    --img-shadow: 0 4px 16px rgba(0, 0, 0, 0.33);
+
+    /* Spacing */
+    --space-xxs: 0.375rem; /* 6px */
+    --space-xs: 0.75rem; /* 12px */
+    --space-sm: 1.25rem; /* 20px */
+    --space-md: 2rem; /* 32px */
+    --space-lg: 3.25rem; /* 52px */
+    --space-xl: 5.25rem; /* 84px */
+
+    /* border radius */
+    --border-radius: 16px;
+}
+
+body, button {
+    font-family: 'Noto Sans Adlam Unjoined';
+    font-weight: 400;
+    background-color: var(--background);
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Noto Sans Adlam Unjoined';
+    font-weight: 700;
+}
+
+p, h1, h2, h3, h4, h5, small {
+    color: var(--text);
+}
+
+html {font-size: 100%;}
+
+h1 {font-size: 4.210rem;}
+
+h2 {font-size: 3.158rem;}
+
+h3 {font-size: 2.369rem;}
+
+h4 {font-size: 1.777rem;}
+
+h5 {font-size: 1.333rem;}
+
+small {font-size: 0.750rem;}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    width: 100%;
+    height: 100vh;
+}
+
+/* nav bar */
+.top-nav {
+    width: 100%;
+    height: var(--space-lg);
+    border-bottom: 2px solid var(--secondary);
+    border-bottom-left-radius: var(--space-xs);
+    border-bottom-right-radius: var(--space-xs);
+    background-color: var(--background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav h2 {
+    margin: 0 var(--space-sm);
+    /* override default h2 size for a smaller one */
+    font-size: 2.369rem;
+}
+
+.top-nav a {
+    text-decoration: none;
+}
+
+.top-nav div:nth-child(2) a {
+    margin: 0 var(--space-md);
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.top-nav div:nth-child(2) a:hover {
+    text-decoration: underline;
+}
+
+/* main area */
+
+main {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+/* side bar */
+.sidenav {
+    background: #eee;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.sidenav a {
+    margin: var(--space-sm) 0;
+}
+
+/* Main view container */
+.view-container {
+    padding: var(--space-md);
+    overflow-x: hidden;
+}
+
+/* Default cards of recipes shown */
+.card-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card, .add-card {
+    margin: var(--space-sm) var(--space-md);
+}
+
+.card-shadow {
+    box-shadow: var(--img-shadow);
+}
+
+.add-card {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    align-content: center;
+}
+
+/* add card "+" size*/
+.add-card i {
+    font-size: 2.369rem;
+}
+
+/* Hidden table until goes to the "table" tab */
+#table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: var(--space-xxs);
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+  

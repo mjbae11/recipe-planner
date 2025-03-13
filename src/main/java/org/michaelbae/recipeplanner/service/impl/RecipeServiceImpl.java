@@ -50,7 +50,8 @@ public class RecipeServiceImpl implements RecipeService
                         recipe.getId(),
                         recipe.getName(),
                         recipe.getDescription(),
-                        recipe.getInstructions()))
+                        recipe.getInstructions(),
+                        recipe.getImagePath()))
                 .collect(Collectors.toList());
     }
 
@@ -61,7 +62,10 @@ public class RecipeServiceImpl implements RecipeService
         Objects.requireNonNull(recipe.getName(), "Recipe name cannot be null");
         Objects.requireNonNull(recipe.getDescription(), "Recipe description cannot be null");
         Objects.requireNonNull(recipe.getInstructions(), "Recipe instructions cannot be null");
+        // return empty string if image is not present / null
+        Objects.requireNonNullElse(recipe.getImagePath(), "");
         return recipeRepository.save(recipe);
+
     }
 
     @Override
@@ -76,7 +80,8 @@ public class RecipeServiceImpl implements RecipeService
                 recipe.getId(),
                 recipe.getName(),
                 recipe.getDescription(),
-                recipe.getInstructions()
+                recipe.getInstructions(),
+                recipe.getImagePath()
         );
     }
 
@@ -85,7 +90,7 @@ public class RecipeServiceImpl implements RecipeService
     {
         // Recipe cannot be null
         Objects.requireNonNull(recipe, "Recipe cannot be null");
-        // check whether the user is in the database or not
+        // check whether the Recipe is in the database or not
         recipeRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid recipe id " + id));

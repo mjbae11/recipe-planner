@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<div class="main-container">
+    <nav class="top-nav">
+        <div>
+            <a th:href="@{/}"><h2><span><i class="fa-regular fa-lemon"></i></span>recipelemon</h2></a>
+        </div>
+        <div>
+            <a th:href="@{/signup}">Sign up</a>
+        </div>
+    </nav>
+    <main>
+        <div class="img-column">
+        </div>
+        <div class="form-column">
+            <div class="form-container">
+                <h1>Welcome Back!</h1>
+                <form th:action="@{/login}" method="post">
+                    <div class="email-container">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="password-container">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Your password..." required>
+                    </div>
+                    <div th:if="${param.error}" style="color: red">
+                        Invalid username or password.
+                    </div>
+                    <button type="submit">Log In</button>
+                    <p>Don't have an account? <span><a th:href="@{/signup}">Sign Up</a></span> instead</p>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

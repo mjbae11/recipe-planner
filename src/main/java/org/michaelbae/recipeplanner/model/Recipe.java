@@ -30,6 +30,8 @@ public class Recipe
     @Lob
     private String instructions;
 
+    private String imagePath;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 

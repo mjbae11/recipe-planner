@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" th:href="@{/css/landing.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- temp font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="main-container">
+    <nav class="top-nav">
+        <div>
+            <a th:href="@{/}"><h2><span><i class="fa-regular fa-lemon"></i></span>recipelemon</h2></a>
+        </div>
+        <div>
+            <a th:href="@{/signup}">Sign up</a>
+            <a th:href="@{/login}">Log in</a>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="video-box">
+            <video autoplay muted loop preload id="hero-video">
+                <source th:src="@{/assets/videos/heroBackground.mp4}" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-text-background">
+            <h1>A Place to Store <span style="text-decoration: underline; font-weight: 600;">Everything</span></h1>
+            <p>Now you can finally save all your different recipes without being on every platform imaginable.</p>
+            <hr>
+            <a th:href="@{/recipes}"><button type="button" class="btn btn-primary">Try it now.</button></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <section class="first-section">
+            <h2>Plan, Cook, Enjoy—Without the Hassle</h2>
+            <p>With RecipeLemon, meal planning is easier than ever. Organize your recipes, create weekly meal plans, and generate grocery lists in just a few clicks.</p>
+            <img th:src="@{/assets/imgs/couplehappycooking.jpg}" alt="Couple cooking happily">
+        </section>
+        <section class="second-section">
+            <img th:src="@{/assets/imgs/familycookingtogether.jpg}" alt="Family cooking together">
+            <h2>Break free from Boring Meals</h2>
+            <p>No more cooking the same thing over and over. RecipeLemon suggests meals based on your saved recipes, helping you add variety to your kitchen.</p>
+        </section>
+        <section class="features">
+            <h2>Features That Simplify Your Life</h2>
+            <div class="features-box">
+                <div class="feature-item">
+                    <i class="fa-solid fa-bookmark main-icon"></i>
+                    <p>Save & Organize Recipes</p>
+                    <span><i class="fa-solid fa-check"></i></span>
+                    <p>Store all your favorite recipes in one convenient location, accessible anytime, anywhere.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-regular fa-calendar-check main-icon"></i>
+                    <p>Automated Meal Planning</p>
+                    <span><i class="fa-solid fa-check"></i></span>
+                    <p>Effortlessly create weekly meal plans that fit your schedule and preferences.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-bolt main-icon"></i>
+                    <p>Smart Grocery Lists</p>
+                    <span><i class="fa-solid fa-check"></i></span>
+                    <p>Generate shopping lists based on your meal plans, so you never forget an ingredient.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-compass main-icon"></i>
+                    <p>Discover & Revive Forgotten Recipes</p>
+                    <span><i class="fa-solid fa-check"></i></span>
+                    <p>RecipeLemon keeps track of what you've cooked before, helping you mix things up and avoid repetitive meals.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <ul>
+            <li>
+                <a th:href="@{/policy}">Privacy Policy</a>
+            </li>
+            <li>
+                <a th:href="@{/terms}">Terms & Conditions</a>
+            </li>
+            <li>
+                <a th:href="@{/about}">About</a>
+            </li>
+            <li>
+                <a th:href="@{/contact}">Contact Us</a>
+            </li>
+            <li><a th:href="@{/info}">More Info</a></li>
+        </ul>
+    </footer>
+</div>
+<script th:src="@{/js/landing.js}"></script>
+</body>
+</html>
